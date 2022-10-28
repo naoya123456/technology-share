@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: PersistentVolumeClaim #PVCで実際に必要な容量のボリュームを確保
+metadata:
+  name: mysql-pv-claim
+  labels:
+    app: wordpress
+spec:
+  accessModes:
+    - ReadWriteOnce #単一Nodeで読み書きが可能
+  resources:
+    requests:
+      storage: 20Gi
